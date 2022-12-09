@@ -1,0 +1,70 @@
+drop database irm;
+
+create database irm;
+
+use irm;
+
+INSERT INTO irm.tipo_exame (id, nome) VALUES(1, 'Exames Gerais');
+INSERT INTO irm.tipo_exame (id, nome) VALUES(2, 'Exames de Imagem');
+INSERT INTO irm.tipo_exame (id, nome) VALUES(3, 'Exames de Sangue');
+
+select * from tipo_exame;
+
+INSERT INTO irm.exame (id,data_cadastro,nome,valor,tipo_exame_id) VALUES (1,'2022-12-01','ECOCARDIOGRAMA',180,1);
+INSERT INTO irm.exame (id,data_cadastro,nome,valor,tipo_exame_id) VALUES (2,'2022-12-01','ELETROCARDIOGRAMA',60,1);
+INSERT INTO irm.exame (id,data_cadastro,nome,valor,tipo_exame_id) VALUES (3,'2022-12-01','MAPA',20,1);
+INSERT INTO irm.exame (id,data_cadastro,nome,valor,tipo_exame_id) VALUES (4,'2022-12-01','DENSITOMETRIA ÓSSEA ',120,2);
+INSERT INTO irm.exame (id,data_cadastro,nome,valor,tipo_exame_id) VALUES (5,'2022-12-01','MAMOGRAFIA',120,2);
+INSERT INTO irm.exame (id,data_cadastro,nome,valor,tipo_exame_id) VALUES (6,'2022-12-01','RX ABDOMEN SIMPLES AP',70,2);
+INSERT INTO irm.exame (id,data_cadastro,nome,valor,tipo_exame_id) VALUES (7,'2022-12-01','FÓSFORO',15,3);
+INSERT INTO irm.exame (id,data_cadastro,nome,valor,tipo_exame_id) VALUES (8,'2022-12-01','GLICOSE',24,3);
+INSERT INTO irm.exame (id,data_cadastro,nome,valor,tipo_exame_id) VALUES (9,'2022-12-01','VITAMINA C',19,3);
+
+select * from exame;
+
+INSERT INTO irm.cliente (id,bairro,cep,cpf,data_nascimento,email,genero,logradouro,municipio,nome,numero,orgao_emissor,rg,telefone,telefone_secundario,uf,uf_rg,ultimaalteracao)
+	VALUES (1,'Ilha Joana Bezerra','50080820','55806334406','1989-12-03','mateus_anthony_campos@sdrifs.com.br','M','Avenida Agostinho Gomes','Recife','Mateus Anthony Campos','524','SDS','102182012','8126418622','81996227653','PE','PE','2022-12-01');
+INSERT INTO irm.cliente (id,bairro,cep,cpf,data_nascimento,email,genero,logradouro,municipio,nome,numero,orgao_emissor,rg,telefone,telefone_secundario,uf,uf_rg,ultimaalteracao)
+	VALUES (2,'São João e São Paulo','54780190','34198653410','1982-02-06','sonia.mirella.gomes@gap.com.br','F','Rua Bom Jesus','Camaragibe','Sônia Mirella Gomes','980','SSP','205989020','8125444038','81982207585','PE','PE','2022-12-01');
+INSERT INTO irm.cliente (id,bairro,cep,cpf,data_nascimento,email,genero,logradouro,municipio,nome,numero,orgao_emissor,rg,telefone,telefone_secundario,uf,uf_rg,ultimaalteracao)
+	VALUES (3,'Caetés III','53545450','73392205427','2004-09-21','paulo_ryan_aragao@nelsoncosta.com.br','M','Rua Quarenta-E','Abreu e Lima','Paulo Ryan Bryan Aragão','345','SDS','128312245','8129168034','81993477488','PE','PE','2022-12-01');
+INSERT INTO irm.cliente (id,bairro,cep,cpf,data_nascimento,email,genero,logradouro,municipio,nome,numero,orgao_emissor,rg,telefone,telefone_secundario,uf,uf_rg,ultimaalteracao)
+	VALUES (4,'Boa Vista','55157030','34736985470','2003-04-20','antonella-silva94@gameecia.com.br','F','Rua Ceci Leite Cavalcante de Souza','Belo Jardim','Antonella Sebastiana Silva','148','SSP','158694156','8139871067','81987880422','PE','PE','2022-12-01');
+INSERT INTO irm.cliente (id,bairro,cep,cpf,data_nascimento,email,genero,logradouro,municipio,nome,numero,orgao_emissor,rg,telefone,telefone_secundario,uf,uf_rg,ultimaalteracao)
+	VALUES (5,'Salgadinho','53110560','71771816449','1995-07-15','levi.jorge.teixeira@live.dk','M','Rua Itapissuma','Olinda','Levi Jorge Cláudio Teixeira','221','SDS','227660614','8125908404','81998944363','PE','PE','2022-12-01');
+    
+select * from cliente;
+
+INSERT INTO irm.roles (id,name) VALUES (2,'COMMON_USER');
+
+select * from roles;
+
+INSERT INTO irm.users (id,account_non_expired,account_non_locked,credentials_non_expired,enabled,full_name,password,user_name)
+	VALUES (1,1,1,1,1,'Murilo Teixeira','$2a$10$2epxHZNxAaUzlEPyvkwXReUtbIYtdi9Y.Q3URG1M3o3qBoxIM2SXS','murilo.teixeira');
+INSERT INTO irm.users (id,account_non_expired,account_non_locked,credentials_non_expired,enabled,full_name,password,user_name)
+	VALUES (2,1,1,1,1,'Gabriel Campana','$2a$10$2epxHZNxAaUzlEPyvkwXReUtbIYtdi9Y.Q3URG1M3o3qBoxIM2SXS','gabriel.campana');
+INSERT INTO irm.users (id,account_non_expired,account_non_locked,credentials_non_expired,enabled,full_name,password,user_name)
+	VALUES (3,1,1,1,1,'Manoela Coelho','$2a$10$2epxHZNxAaUzlEPyvkwXReUtbIYtdi9Y.Q3URG1M3o3qBoxIM2SXS','manoela.coelho');
+INSERT INTO irm.users (id,account_non_expired,account_non_locked,credentials_non_expired,enabled,full_name,password,user_name)
+	VALUES (4,1,1,1,1,'Thompson Cysneiros','$2a$10$2epxHZNxAaUzlEPyvkwXReUtbIYtdi9Y.Q3URG1M3o3qBoxIM2SXS','thompson.cysneiros');
+INSERT INTO irm.users (id,account_non_expired,account_non_locked,credentials_non_expired,enabled,full_name,password,user_name)
+	VALUES (5,1,1,1,1,'Diógenes Barbosa','$2a$10$2epxHZNxAaUzlEPyvkwXReUtbIYtdi9Y.Q3URG1M3o3qBoxIM2SXS','diogenes.barbosa');
+INSERT INTO irm.users (id,account_non_expired,account_non_locked,credentials_non_expired,enabled,full_name,password,user_name)
+	VALUES (6,1,1,1,1,'Igor Andrade','$2a$10$2epxHZNxAaUzlEPyvkwXReUtbIYtdi9Y.Q3URG1M3o3qBoxIM2SXS','igor.andrade');
+    
+select * from users;
+
+INSERT INTO irm.users_roles (user_id,role_id)
+	VALUES (1,1);
+INSERT INTO irm.users_roles (user_id,role_id)
+	VALUES (2,1);
+INSERT INTO irm.users_roles (user_id,role_id)
+	VALUES (3,1);
+INSERT INTO irm.users_roles (user_id,role_id)
+	VALUES (4,1);
+INSERT INTO irm.users_roles (user_id,role_id)
+	VALUES (5,1);
+INSERT INTO irm.users_roles (user_id,role_id)
+	VALUES (6,1);
+
+select * from users_roles;

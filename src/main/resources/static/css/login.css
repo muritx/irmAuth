@@ -1,0 +1,171 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto';
+}
+
+:root {
+    --cor-Cfundo: #4a4a4a82;
+    --cor-preto: #000000;
+    --cor-branco: #ffffff;
+    --cor-cinzaclaro: #f2f2f2;
+    --cor-cinza: #c4c4c4;
+    --cor-cinzaescuro: #575859;
+    --cor-vermelho: #f23041;
+    --cor-laranja: #f17d02;
+  }
+
+/*FUNDO*/
+#fundo{
+    background-image: url(../image/BGLogin.png);
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 100vh;
+}
+
+/*CAIXA*/
+#box{
+    background-color: var(--cor-Cfundo);
+    width: 31vw;
+    height: 75vh;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    right: 7vw;
+    top: 14vh;
+    border-radius: 30px;
+}
+
+/*LOGO IRM*/
+#logoIRM{
+    margin-top: 5vh;
+}
+#logoIRM img{
+    width: 12vw;
+}
+
+/*TITULO*/
+#titulo{
+    margin-top: 5vh;
+}
+#titulo h1{
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 3vw;
+}
+
+/*SELETOR*/
+#seletor{
+    background-color: var(--cor-cinza);
+    width: 28vw;
+    height: 9vh;
+    border-radius: 30px;
+    margin-top: 3vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.ativo{
+    background-color: var(--cor-vermelho) !important;
+    color: var(--cor-branco) !important;
+    border-radius: 29px;
+}
+
+#paciente{
+    width: 14vw;
+    height: 9vh;
+    border-radius: 29px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+#funcionario{
+    width: 14vw;
+    height: 9vh;
+    border-radius: 29px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+#btpaciente{
+    width: 14vw;
+    height: 9vh;
+    background: none;
+    background-color: unset;
+    border: unset;
+    z-index: 9999;
+    cursor: pointer;
+    font-size: 1.2vw;
+}
+
+#btfuncionario{
+    width: 14vw;
+    height: 9vh;
+    background: none;
+    background-color: unset;
+    border: unset;
+    z-index: 9999;
+    cursor: pointer;
+    font-size: 1.2vw;
+}
+
+/*FORMULARIO LOGIN*/
+#forms{
+    display: flex;
+    flex-direction: column;
+    margin-top: 3vh;
+}
+
+.campos{
+    width: 20vw;
+    height: 5vh;
+    font-size: 1.3vw;
+    border: unset;
+    border-radius: 5px;
+    padding-left: 0.5vw;
+    margin-bottom: 2vh;
+}
+
+.campos:focus{
+    border: unset;
+}
+
+/*MATENHA CONECTADO*/
+#check{
+    display: inline-flex;
+    justify-content: initial;
+    margin-right: 0.2vw;
+}
+#check input{
+    margin-right: 0.2vw;
+}
+#check span{
+    font-size: 1vw;
+}
+
+/*BOTAO LOGIN*/
+#botao{
+    display: flex;
+    justify-content: center;
+    margin-top: 3vh;
+}
+
+#botaolog{
+    background: var(--cor-laranja);
+    border: unset;
+    height: 8vh;
+    width: 15vw;
+    font-size: 1.5vw;
+    font-weight: 700;
+    color: var(--cor-branco);
+    border-radius: 10px;
+    cursor: pointer;
+
+}

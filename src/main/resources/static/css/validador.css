@@ -1,0 +1,20 @@
+/*Validador cpf*/
+#cpfinvalido {
+    color: red;
+    font-weight: bold;
+    display: none;
+}
+
+#cpfvalidado {
+    color: green;
+    font-weight: bold;
+    display: none;
+}
+/*Validador*/
+.erro{
+    border: 2px solid red;
+}
+
+.valido{
+    border: 2px solid rgb(20, 198, 0);
+}

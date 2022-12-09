@@ -1,0 +1,94 @@
+:root {
+    --cor-preto: #000000;
+    --cor-branco: #ffffff;
+    --cor-cinzaclaro: #f2f2f2;
+    --cor-cinza: #c4c4c4;
+    --cor-cinzaescuro: #575859;
+    --cor-vermelho: #f23041;
+    --cor-laranja: #f17d02;
+  }
+  
+
+/*MENU SELECIONADO*/
+#clientes .catpri{
+    background-color: var(--cor-laranja) !important;
+    color: var(--cor-branco) !important;
+}
+#clientes .catpri path{
+    fill: var(--cor-branco) !important;
+}
+
+/*FONTE*/
+#formulario h1{
+    font-size: 2vw;
+    font-weight: 900;
+}
+#formulario h2{
+    font-size: 1.3vw;
+    font-weight: 900;
+}
+#formulario p{
+    font-size: 1vw;
+}
+/*FUNDO*/
+#formulario{
+    overflow-y: scroll;
+    overflow-x: clip;
+    position: absolute;
+    top: 5vh;
+    right: 5vw;
+    width: 72%;
+    height: 85vh;
+    background: #FFFFFF;
+    box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+}
+#marg{
+    padding: 10px;
+}
+/*ESPAÇAMENTO*/
+.espl{
+    margin-right: 40px;
+}
+.esplp{
+    margin-right: 20px;
+}
+.espc{
+    margin-top: 10px;
+}
+
+/*CAIXAS*/
+.form-control{
+    background-color: #F2F2F2;
+}
+.form-select{
+    background-color: #F2F2F2;
+}
+
+/*LINHA GENERO--------------------*/
+.opgenero{
+    display: flex;
+    font-size: 1vw;
+}
+.form-check {
+    padding-left: 0;
+}
+.gesp{
+    margin-right: 0.5vw;
+}
+/*bolinha*/
+.form-check .form-check-input {
+    float: left;
+    margin-left: 0;
+    margin-right: 0.2vw;
+}
+
+/*Botao*/
+.l11{
+    justify-content: end;
+    margin-top: 30px;
+    margin-bottom: 11px;
+}
+.l11 .b1{
+    margin-right: 20px;
+}

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link href="css/estrutura.css" rel="stylesheet" type="text/css"/>
+    <link href="css/estruturaBT.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="css/historicodocliente.css">
+    <link rel="stylesheet" href="css/svg.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="js/menu.js"></script>
+    <script src="js/alert.js"></script>
+    <title>Gerenciamento do sistema</title>
+</head>
+<header>
+    <p>Instituto Roberto Mateus > Gerenciamento do sistema</p>
+
+    <div th:replace="~{inicio :: header}"></div>
+
+</header>
+<body>
+
+<section th:replace="~{inicio :: menu}"></section>
+
+<section id="formulario">
+    <div id="marg">
+        <div class="l1 col-12 d-flex">
+            <h1>Gerenciamento do sistema</h1>
+        </div>
+        <div class="limite-padi-tab">
+
+            <div class="foramatcao-tabela espc">
+                <table class="table teste">
+                    <thead>
+                    <tr class="l3">
+                        <th scope="col" class="formatacao_titulos">Nome de usuário</th>
+                        <th scope="col" class="formatacao_titulos">Nome completo</th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                    <tr th:each="user : ${users}" class="l4 cor-escura">
+                        <td><span th:text="${user.userName}"></span></td>
+                        <td><span th:text="${user.fullName}"></span></td>
+
+                    </tr>
+                    </tbody>
+
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+        crossorigin="anonymous"></script>
+<script src="js/mascaras.js"></script>
+</body>
+
+<footer th:replace="~{inicio :: footer}"></footer>
+
+</html>
+
+<!-- <!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+>
+<head>
+    <meta charset="UTF-8">
+    <title>Registration and Login System</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+          crossorigin="anonymous">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Registration and Login System</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" th:href="@{/register}">Register</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" th:href="@{/logout}">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="container">
+    <div class="row">
+        <h1> Usuários cadastrados </h1>
+    </div>
+    <table class="table table-striped table-bordered table-hover">
+        <thead class="table-dark">
+            <tr>
+                <th>Nome completo</th>
+                <th>Nome de usuário</th>
+                <th>Nível de Acesso</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="user: ${users}">
+                <td th:text="${user.fullName}"></td>
+                <td th:text="${user.userName}"></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html> -->
