@@ -4,6 +4,8 @@ create database irm;
 
 use irm;
 
+SHOW TABLES;
+
 INSERT INTO irm.tipo_exame (id, nome) VALUES(1, 'Exames Gerais');
 INSERT INTO irm.tipo_exame (id, nome) VALUES(2, 'Exames de Imagem');
 INSERT INTO irm.tipo_exame (id, nome) VALUES(3, 'Exames de Sangue');
@@ -22,20 +24,9 @@ INSERT INTO irm.exame (id,data_cadastro,nome,valor,tipo_exame_id) VALUES (9,'202
 
 select * from exame;
 
-INSERT INTO irm.cliente (id,bairro,cep,cpf,data_nascimento,email,genero,logradouro,municipio,nome,numero,orgao_emissor,rg,telefone,telefone_secundario,uf,uf_rg,ultimaalteracao)
-	VALUES (1,'Ilha Joana Bezerra','50080820','55806334406','1989-12-03','mateus_anthony_campos@sdrifs.com.br','M','Avenida Agostinho Gomes','Recife','Mateus Anthony Campos','524','SDS','102182012','8126418622','81996227653','PE','PE','2022-12-01');
-INSERT INTO irm.cliente (id,bairro,cep,cpf,data_nascimento,email,genero,logradouro,municipio,nome,numero,orgao_emissor,rg,telefone,telefone_secundario,uf,uf_rg,ultimaalteracao)
-	VALUES (2,'São João e São Paulo','54780190','34198653410','1982-02-06','sonia.mirella.gomes@gap.com.br','F','Rua Bom Jesus','Camaragibe','Sônia Mirella Gomes','980','SSP','205989020','8125444038','81982207585','PE','PE','2022-12-01');
-INSERT INTO irm.cliente (id,bairro,cep,cpf,data_nascimento,email,genero,logradouro,municipio,nome,numero,orgao_emissor,rg,telefone,telefone_secundario,uf,uf_rg,ultimaalteracao)
-	VALUES (3,'Caetés III','53545450','73392205427','2004-09-21','paulo_ryan_aragao@nelsoncosta.com.br','M','Rua Quarenta-E','Abreu e Lima','Paulo Ryan Bryan Aragão','345','SDS','128312245','8129168034','81993477488','PE','PE','2022-12-01');
-INSERT INTO irm.cliente (id,bairro,cep,cpf,data_nascimento,email,genero,logradouro,municipio,nome,numero,orgao_emissor,rg,telefone,telefone_secundario,uf,uf_rg,ultimaalteracao)
-	VALUES (4,'Boa Vista','55157030','34736985470','2003-04-20','antonella-silva94@gameecia.com.br','F','Rua Ceci Leite Cavalcante de Souza','Belo Jardim','Antonella Sebastiana Silva','148','SSP','158694156','8139871067','81987880422','PE','PE','2022-12-01');
-INSERT INTO irm.cliente (id,bairro,cep,cpf,data_nascimento,email,genero,logradouro,municipio,nome,numero,orgao_emissor,rg,telefone,telefone_secundario,uf,uf_rg,ultimaalteracao)
-	VALUES (5,'Salgadinho','53110560','71771816449','1995-07-15','levi.jorge.teixeira@live.dk','M','Rua Itapissuma','Olinda','Levi Jorge Cláudio Teixeira','221','SDS','227660614','8125908404','81998944363','PE','PE','2022-12-01');
-    
-select * from cliente;
-
+INSERT INTO irm.roles (id,name) VALUES (1,'ADMIN');
 INSERT INTO irm.roles (id,name) VALUES (2,'COMMON_USER');
+INSERT INTO irm.roles (id,name) VALUES (3,'PACIENTE');
 
 select * from roles;
 
@@ -67,4 +58,17 @@ INSERT INTO irm.users_roles (user_id,role_id)
 INSERT INTO irm.users_roles (user_id,role_id)
 	VALUES (6,1);
 
-select * from users_roles;
+select r.id, ro.name as funcao, r.full_name from users_roles ur inner join users r inner join roles ro group by r.id;
+
+INSERT INTO irm.cliente (id,bairro,cep,cpf,data_nascimento,email,genero,logradouro,municipio,nome,numero,orgao_emissor,rg,telefone,telefone_secundario,uf,uf_rg,ultimaalteracao)
+	VALUES (1,'Ilha Joana Bezerra','50080820','55806334406','1989-12-03','mateus_anthony_campos@sdrifs.com.br','M','Avenida Agostinho Gomes','Recife','Mateus Anthony Campos','524','SDS','102182012','8126418622','81996227653','PE','PE','2022-12-01');
+INSERT INTO irm.cliente (id,bairro,cep,cpf,data_nascimento,email,genero,logradouro,municipio,nome,numero,orgao_emissor,rg,telefone,telefone_secundario,uf,uf_rg,ultimaalteracao)
+	VALUES (2,'São João e São Paulo','54780190','34198653410','1982-02-06','sonia.mirella.gomes@gap.com.br','F','Rua Bom Jesus','Camaragibe','Sônia Mirella Gomes','980','SSP','205989020','8125444038','81982207585','PE','PE','2022-12-01');
+INSERT INTO irm.cliente (id,bairro,cep,cpf,data_nascimento,email,genero,logradouro,municipio,nome,numero,orgao_emissor,rg,telefone,telefone_secundario,uf,uf_rg,ultimaalteracao)
+	VALUES (3,'Caetés III','53545450','73392205427','2004-09-21','paulo_ryan_aragao@nelsoncosta.com.br','M','Rua Quarenta-E','Abreu e Lima','Paulo Ryan Bryan Aragão','345','SDS','128312245','8129168034','81993477488','PE','PE','2022-12-01');
+INSERT INTO irm.cliente (id,bairro,cep,cpf,data_nascimento,email,genero,logradouro,municipio,nome,numero,orgao_emissor,rg,telefone,telefone_secundario,uf,uf_rg,ultimaalteracao)
+	VALUES (4,'Boa Vista','55157030','34736985470','2003-04-20','antonella-silva94@gameecia.com.br','F','Rua Ceci Leite Cavalcante de Souza','Belo Jardim','Antonella Sebastiana Silva','148','SSP','158694156','8139871067','81987880422','PE','PE','2022-12-01');
+INSERT INTO irm.cliente (id,bairro,cep,cpf,data_nascimento,email,genero,logradouro,municipio,nome,numero,orgao_emissor,rg,telefone,telefone_secundario,uf,uf_rg,ultimaalteracao)
+	VALUES (5,'Salgadinho','53110560','71771816449','1995-07-15','levi.jorge.teixeira@live.dk','M','Rua Itapissuma','Olinda','Levi Jorge Cláudio Teixeira','221','SDS','227660614','8125908404','81998944363','PE','PE','2022-12-01');
+    
+select * from cliente;

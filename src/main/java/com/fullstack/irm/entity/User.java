@@ -15,15 +15,15 @@ import java.util.List;
 @AllArgsConstructor
 @Entity
 @Table(name="users")
-public class User
-{
+public class User {
+
     private static final long serialVersionUID = 8443107486818289329L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "user_name", nullable=false, unique = true)
+    @Column(name = "user_name", unique = true)
     private String userName;
 
 	@Column(name = "full_name")

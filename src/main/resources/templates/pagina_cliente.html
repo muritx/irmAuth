@@ -1,0 +1,60 @@
+<!DOCTYPE html> 
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+
+    <div th:replace="create_cliente :: head"></div>
+    
+    <title>Página do cliente</title>
+</head>
+<header>
+    <p>Instituto Roberto Mateus > Clientes > Histórico de Clientes > Página do cliente</p>
+
+    <div th:replace="inicio :: header"></div>
+
+</header>
+<body>
+
+<section id="menu" th:replace="~{inicio :: menu}">
+</section>
+
+<section th:replace="~{inicio :: menu}"></section>
+
+<form id="formulario" th:object="${cliente}" novalidate>
+    <div id="marg">
+        <div class="l1 col-12 d-flex" >
+            <h1 th:text="${cliente.nome}"></h1>
+        </div>
+
+        <div th:replace="~{create_cliente :: formulario}"></div>
+
+        <div class="foramatcao-tabela espc">
+            <table class="table teste">
+                <thead>
+                <tr class="l3">
+                    <th scope="col" class="formatacao_titulos">Data</th>
+                    <th scope="col" class="formatacao_titulos">Nº. da Solicitação</th>
+                    <th scope="col" class="formatacao_titulos">Nome do exame</th>
+                    <th scope="col" class="formatacao_titulos">Prestador</th>
+                </tr>
+                </thead>
+
+                <tbody>
+                <tr th:each="solicitacao : ${solicitacoes}" class="l4 cor-escura">
+                    <td><span th:text="${solicitacao.data_cadastro}"></span></td>
+                    <td><span th:text="${solicitacao.solicitacao_id}"></span></td>
+                    <td><span th:text="${solicitacao.exame}"></span></td>
+                    <td><span th:text="${solicitacao.prestador}"></span></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</form>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+</body>
+<!-- COMUM PARA TODAS AS PÁGINAS -->
+<footer th:replace="inicio :: footer"></footer>
+<!-- COMUM PARA TODAS AS PÁGINAS -->
+<script type="text/javascript" th:src="@{js/validador.js}"></script>
+</html>

@@ -38,4 +38,8 @@ public class TipoExame {
     private List<Exame> exames = new ArrayList<>();
     //**********************************************//
 
+    @Override
+    public String toString() {
+        return nome;
+    }
 }

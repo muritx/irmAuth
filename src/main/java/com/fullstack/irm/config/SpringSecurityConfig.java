@@ -29,8 +29,8 @@ public class SpringSecurityConfig {
         http.csrf().disable()
                 .authorizeRequests()
                 .antMatchers("/register/**").permitAll()
-                .antMatchers("/inicio", "/cliente", "/historicoclientes", "/solicitacao").authenticated()
-                .antMatchers("/users", "/gerenciamento").hasRole("ADMIN")
+                .antMatchers("/", "/inicio", "/cliente/**", "/historicoclientes/**", "/solicitacao/**").authenticated()
+                .antMatchers( "/gerenciamento").hasAuthority("ADMIN")
                 .and().
                 formLogin(
                         form -> form

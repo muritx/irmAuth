@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
 <head>
 
     <div th:replace="create_cliente :: head"></div>
@@ -38,5 +38,5 @@
 
 <footer th:replace="~{inicio :: footer}"></footer>
 
-<script type="text/javascript" src="js/validador.js"></script>
+<script type="text/javascript" src="@{js/validador.js}"></script>
 </html>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
 <head>
 
     <!-- COMUM PARA O FORMULÁRIO DE CLIENTES -->
@@ -10,12 +10,12 @@
             integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
         <link th:href="@{/css/estrutura.css}" rel="stylesheet" type="text/css"/>
         <link th:href="@{/css/cadastrodeclientes.css}" rel="stylesheet" type="text/css"/>
-        <link th:href="@{/css/validador.css}" rel="stylesheet" type="text/css"/>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-        <script src="js/menu.js"></script>
-        <script src="js/validador.js"></script>
-        <script src="js/CampoVazio.js"></script>
+        <script th:src="@{/js/menu.js}"></script>
+        <script th:src="@{/js/validador.js}"></script>
+        <script th:src="@{/js/CampoVazio.js}"></script>
+        <link th:href="@{/css/validador.css}" rel="stylesheet" type="text/css"/>
     </div>
     <!-- COMUM PARA O FORMULÁRIO DE CLIENTES -->
 
@@ -229,6 +229,6 @@
 
 <footer th:replace="~{inicio :: footer}"></footer>
 
-<script type="text/javascript" src="js/validador.js"></script>
+<script type="text/javascript" th:src="@{/js/validador.js}"></script>
 
 </html>

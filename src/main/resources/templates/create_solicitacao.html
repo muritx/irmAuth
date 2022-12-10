@@ -4,15 +4,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-    <link href="css/estrutura.css" rel="stylesheet" type="text/css" />
-    <link href="css/solicitacaodeexames.css" rel="stylesheet" type="text/css" />
-    <link href="css/validador.css" rel="stylesheet" type="text/css" />
+    <link th:href="@{/css/estrutura.css}" rel="stylesheet" type="text/css" />
+    <link th:href="@{/css/solicitacaodeexames.css}" rel="stylesheet" type="text/css" />
+    <link th:href="@{/css/validador.css}" rel="stylesheet" type="text/css" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script src="js/menu.js"></script>
-    <script src="js/validador.js"></script>
-    <script src="js/CampoVazio.js"></script>
-    <title>SOLICITAÇÃO DE EXAMES</title>
+    <script th:src="@{/js/menu.js}"></script>
+    <script th:src="@{/js/validador.js}"></script>
+    <script th:src="@{/js/CampoVazio.js}"></script>
+    <title>Solicitação de Exames</title>
 </head>
 <header>
     <p>Instituto Roberto Mateus > Exames > Solicitação de exames</p>
@@ -184,5 +184,5 @@
     </div>
     <img id="logoidreamF" src="img/idream 1.svg" alt="">
 </footer>
-<script type="text/javascript" src="js/validador.js"></script>
+<script type="text/javascript" th:src="@{js/validador.js}"></script>
 </html>

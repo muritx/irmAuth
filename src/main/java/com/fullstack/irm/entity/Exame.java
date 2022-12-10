@@ -57,4 +57,8 @@ public class Exame {
     private TipoExame tipoExame;
     //*****************************************************//
 
+    @Override
+    public String toString() {
+        return nome;
+    }
 }
