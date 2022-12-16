@@ -106,7 +106,10 @@ public class ControllerCliente {
             //CORRIGIR: Informar que existe algum erro no formulário!
         }
 
-        //CORRIGIR: Atualizar CPF e telefone (senha), caso sejam atualizados
+        User user = userRepository.findByUserName(cliente.getCpf());
+        user.setPassword(passwordEncoder.encode(cliente.getTelefone()));
+
+        userRepository.save(user);
 
         cliente.setUltimaalteracao(new Date());
 
@@ -123,9 +126,15 @@ public class ControllerCliente {
         Cliente cliente = clienteRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Invalid person Id:" + id));
 
+        User user = userRepository.findByUserName(cliente.getCpf());
+        user.setRoles(null);
+        userRepository.delete(user);
+
         clienteRepository.delete(cliente);
+
         return "redirect:/historicoclientes";
     }
+
     //********************************************************************************//
 
     //*** Método GET que exibe todos os clientes cadastrados ***//
@@ -145,14 +154,15 @@ public class ControllerCliente {
 
         List<Cliente> clientes = clienteRepository.findAll();
         List<Exame> listaexames = exameRepository.findAll();
-        List<Solicitacao> solicitacoes = solicitacaoRepository.findAll();
-
+        
         model.addAttribute("clientes", clientes);
         model.addAttribute("listaexames", listaexames);
-        model.addAttribute("solicitacoes", solicitacoes);
 
         Cliente cliente = clienteRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Invalid person Id:" + id));
+
+        List<Solicitacao> solicitacoes = solicitacaoRepository.findSolicitacaoByCliente(cliente);
+        model.addAttribute("solicitacoes", solicitacoes);
 
         model.addAttribute("cliente", cliente);
         return "pagina_cliente";
@@ -191,4 +201,17 @@ public class ControllerCliente {
         return roleRepository.save(role);
     }
 
+    //Busca nome cliente
+
+    @GetMapping("getNameByCpf/{cpf}")
+    public Cliente getNameByCpf(Model model, @PathVariable(name = "cpf") String cpf) {
+
+        Cliente cliente = clienteRepository.findByCpf(cpf);
+                //.findById(id)
+                //.orElseThrow(() -> new IllegalArgumentException("Invalid person Id:" + id));
+
+        //model.addAttribute("cliente", cliente);
+        return cliente;
+        //pagina_cliente.html
+    }
 }

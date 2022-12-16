@@ -58,6 +58,10 @@
     font-size: 3vw;
 }
 
+.fonte-login{
+    font-size: 2vw;
+}
+
 /*SELETOR*/
 #seletor{
     background-color: var(--cor-cinza);

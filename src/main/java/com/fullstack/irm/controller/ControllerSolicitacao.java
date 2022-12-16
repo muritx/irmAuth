@@ -7,13 +7,14 @@ import com.fullstack.irm.entity.TipoExame;
 import com.fullstack.irm.repository.ClienteRepository;
 import com.fullstack.irm.repository.ExameRepository;
 import com.fullstack.irm.repository.SolicitacaoRepository;
-import com.fullstack.irm.repository.TipoExameRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -28,9 +29,6 @@ public class ControllerSolicitacao {
     private ClienteRepository clientesRep;
 
     @Autowired
-    private TipoExameRepository tipoRepository;
-
-    @Autowired
     private ExameRepository examesRep;
 
     //*** Método GET que disponibiliza o formulário para permitir CREATE e UPDATE de Solicitações de Exame ***//
@@ -39,13 +37,9 @@ public class ControllerSolicitacao {
 
         List<Cliente> clientes = clientesRep.findAll();
 
-        List<TipoExame> tiposdeexame = tipoRepository.findAll();
-
         List<Exame> listaexames = examesRep.findAll();
 
         model.addAttribute("clientes", clientes);
-
-        model.addAttribute("tiposdeexame", tiposdeexame);
 
         model.addAttribute("listaexames", listaexames);
 
@@ -55,12 +49,15 @@ public class ControllerSolicitacao {
 
     //*** Método POST que adiciona a solicitação ao Banco de Dados através do formulário acima ***//
     @PostMapping("/postSolicitacao")
-    public String postSolicitacao(@Valid Solicitacao solicitacao, BindingResult result) {
+    public String postSolicitacao(@Valid Solicitacao solicitacao, BindingResult result, @RequestParam("cpf") String cpf) {
 
         if (result.hasFieldErrors()) {
             return "redirect:/solicitacao";
             //CORRIGIR: Informar que existe algum erro no formulário!
         }
+        
+        Cliente cliente = clientesRep.findByCpf(cpf);
+        solicitacao.setCliente(cliente);
 
         solitacoesRep.save(solicitacao);
         return "redirect:/inicio";

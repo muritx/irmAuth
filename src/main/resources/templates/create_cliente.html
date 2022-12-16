@@ -20,13 +20,20 @@
     <!-- COMUM PARA O FORMULÁRIO DE CLIENTES -->
 
     <title>Cadastro de cliente</title>
+
 </head>
+
 <header>
-    <p>Instituto Roberto Mateus > Clientes > Cadastro de cliente</p>
-
-    <div th:replace="~{inicio :: header}"></div>
-
+    <div class="col-md-12">
+        <div class="d-flex justify-content-around align-items: center">
+            <div class="col-md-8 px-0">
+                <p>Instituto Roberto Mateus > Instituto Roberto Mateus > Clientes > Cadastro de cliente</p>
+            </div>
+            <div th:replace="~{inicio :: sair}"></div>
+        </div>
+    </div>
 </header>
+
 <body>
 
 <section th:replace="~{inicio :: menu}"></section>
